@@ -30,8 +30,12 @@ export class MovieService {
     return this.http.get('https://api.themoviedb.org/3/discover/tv', options)
   }
 
-  getRatedMovies() {
-    return this.http.get('https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies', options)
+  getNewGuestSession() {
+    return this.http.get<any>('https://api.themoviedb.org/3/authentication/guest_session/new', options)
+  }
+
+  getRatedMovies(guestSessionId: string) {
+    return this.http.get(`https://api.themoviedb.org/3/guest_session/${guestSessionId}/rated/movies`, options)
   }
 
   getBannerImage(id: number) {
