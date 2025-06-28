@@ -11,7 +11,7 @@ const options = {
   },
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer YOUR_TMDB_API_READ_ACCESS_TOKEN_HERE'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjMyNDkxMGNhMTVmNTQzMzk2Yzc3OWFjZThjYjYwNCIsIm5iZiI6MTc1MDYyMjYxNi44MTIsInN1YiI6IjY4NTg2MTk4MjgxYTRlODhmNWQwZmE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FbdFW1BxjsXjm6y8cHy3x69v10d7d9-CNbQv6fGtTEM'
   }
 }
 
