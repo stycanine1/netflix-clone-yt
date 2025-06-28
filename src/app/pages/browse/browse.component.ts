@@ -1,12 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../shared/services/auth.service';
 import { HeaderComponent } from 'src/app/core/components/header/header.component';
 import { BannerComponent } from 'src/app/core/components/banner/banner.component';
 import { MovieService } from 'src/app/shared/services/movie.service';
 import { MovieCarouselComponent } from 'src/app/shared/components/movie-carousel/movie-carousel.component';
 import { IVideoContent } from 'src/app/shared/models/video-content.interface';
-import { Observable, forkJoin, map, switchMap } from 'rxjs';
+import { Observable, forkJoin, map } from 'rxjs';
 
 @Component({
   selector: 'app-browse',
@@ -17,11 +16,8 @@ import { Observable, forkJoin, map, switchMap } from 'rxjs';
 })
 export class BrowseComponent implements OnInit {
 
-  auth = inject(AuthService);
   movieService = inject(MovieService);
-  name = JSON.parse(sessionStorage.getItem("loggedInUser")!).name;
-  userProfileImg = JSON.parse(sessionStorage.getItem("loggedInUser")!).picture;
-  email = JSON.parse(sessionStorage.getItem("loggedInUser")!).email;
+  userProfileImg = 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
   bannerDetail$ = new Observable<any>();
   bannerVideo$ = new Observable<any>();
 
@@ -42,6 +38,7 @@ export class BrowseComponent implements OnInit {
     this.movieService.getPopularMovies(),
     this.movieService.getTopRated()
   ];
+
   ngOnInit(): void {
     forkJoin(this.sources)
     .pipe(
@@ -67,10 +64,5 @@ export class BrowseComponent implements OnInit {
     .subscribe(res=>{
       console.log(res);
     })
-  }
-
-  singOut() {
-    sessionStorage.removeItem("loggedInUser");
-    this.auth.signOut();
   }
 }

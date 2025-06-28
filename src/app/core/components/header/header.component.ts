@@ -1,6 +1,5 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +9,6 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input({required: true}) userImg: string = '';
-  username = JSON.parse(sessionStorage.getItem('loggedInUser')!).name;
-  auth = inject(AuthService);
+  @Input() userImg: string = 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
   navList = ["Home", "TV Shows", "News & Popular", "My List", "Browse by Language"]
 }

@@ -2,18 +2,15 @@
   <!-- Logo + navitems -->
   <div class="flex gap-5">
     <img width="110" src="/assets/pngwing.com.png" alt="netflix-logo">
-    <ul class="flex items-center" *ngFor="let item of navList">
+    <ul class="flex items-center gap-8" *ngFor="let item of navList">
       <li class="text-neutral-200 cursor-pointer text-sm font-extralight hover:text-gray-400 transition-[1s]">{{item}}</li>
     </ul>
   </div>
-  <!-- Welcome User | pofile Img | Singout -->
+  <!-- Welcome message -->
   <div class="text-white flex items-center gap-4">
     <div class="flex items-center gap-2">
-      <a href="/"><span>Welcome <strong>{{username}}</strong></span></a>
+      <span>Welcome to <strong>Netflix Clone</strong></span>
       <img [src]="userImg" width="42" alt="user-img">
     </div>
-    &nbsp; | &nbsp;
-    <a (click)="auth.signOut()">Signout</a>
   </div>
 </header>
-
